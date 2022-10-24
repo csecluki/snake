@@ -1,2 +1,2 @@
 # Snake
-My own snake game with Python pygame
+My own version of snake game with Python pygame
