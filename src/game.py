@@ -53,13 +53,17 @@ class Game:
                     elif event.key == pygame.K_SPACE:
                         self.pause()
                     elif event.key == pygame.K_UP:
-                        self.move_direction = 0, -20
+                        if self.move_direction != (0, 20):
+                            self.move_direction = 0, -20
                     elif event.key == pygame.K_DOWN:
-                        self.move_direction = 0, 20
+                        if self.move_direction != (0, -20):
+                            self.move_direction = 0, 20
                     elif event.key == pygame.K_LEFT:
-                        self.move_direction = -20, 0
+                        if self.move_direction != (20, 0):
+                            self.move_direction = -20, 0
                     elif event.key == pygame.K_RIGHT:
-                        self.move_direction = 20, 0
+                        if self.move_direction != (-20, 0):
+                            self.move_direction = 20, 0
             move_action = self.move()
             if move_action == MoveAction.NEW_FOOD:
                 if not self.snake.is_enough_space():

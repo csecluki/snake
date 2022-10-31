@@ -15,9 +15,6 @@ class Snake(list):
 
         new_head = self.get_new_head(direction)
 
-        if new_head == self[1]:
-            return MoveAction.REVERSE_MOVE
-
         if not self.move_possible(new_head):
             return MoveAction.GAME_OVER
 
