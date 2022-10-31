@@ -9,6 +9,7 @@ from config import static
 
 class Game:
     move_direction = (0, 0)
+    speed = 8
 
     def __init__(self):
         self.window = self.initialize_window()
@@ -43,7 +44,7 @@ class Game:
 
     def play(self):
         while self.running:
-            pygame.time.Clock().tick(8)
+            pygame.time.Clock().tick(self.speed)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
@@ -52,6 +53,11 @@ class Game:
                         self.running = False
                     elif event.key == pygame.K_SPACE:
                         self.pause()
+                    elif event.key == pygame.K_KP_PLUS:
+                        self.speed += 1
+                    elif event.key == pygame.K_KP_MINUS:
+                        if self.speed > 1:
+                            self.speed -= 1
                     elif event.key == pygame.K_UP:
                         if self.move_direction != (0, 20):
                             self.move_direction = 0, -20
