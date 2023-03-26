@@ -1,9 +1,11 @@
+from collections import UserList
+
 import pygame
 
 from move_action import MoveAction
 
 
-class Snake(list):
+class Snake(UserList):
 
     def __init__(self, initial_body=None):
         initial_body = initial_body or [(340, 220), (340, 240), (340, 260)]
